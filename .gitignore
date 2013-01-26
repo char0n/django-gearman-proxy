@@ -1,0 +1,19 @@
+/dist/
+/django_gearman_proxy.egg-info/
+
+# Emacs backup files & locks
+*~
+\#*
+.\#*
+
+# openoffice locks
+.~lock*
+
+# others - pyc, vim, pycharm, pip
+*.pyc
+*.pyc
+*.pyo
+*.swp
+*.swo
+.idea
+pip-log.txt*
