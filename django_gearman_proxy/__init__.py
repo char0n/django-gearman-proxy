@@ -1,5 +1,9 @@
 from importlib import import_module
 
+
+VERSION = '1.0'
+
+
 def load_object(import_path):
     """
     Shamelessly stolen from https://github.com/ojii/django-load
