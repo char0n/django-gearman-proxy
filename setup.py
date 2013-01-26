@@ -28,7 +28,7 @@ setup(
     license='BSD',
     keywords = 'django gearman email sms asynchronous message queue',
     packages=find_packages('.'),
-    install_requires=['django', 'django_gearman_commands', 'django-sendsms'],
+    install_requires=['django', 'django_gearman_commands', 'smssluzbacz-api', 'django-sendsms'],
     dependency_links = ['http://github.com/Yelp/python-gearman/tarball/master#egg=gearman-dev'],
     platforms='any',
     test_suite='django_gearman_proxy.tests',
