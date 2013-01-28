@@ -4,6 +4,10 @@ import unittest
 from django.core.mail.message import EmailMessage
 
 import django_gearman_proxy.settings
+django_gearman_proxy.settings.GEARMAN_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+django_gearman_proxy.settings.GEARMAN_EMAIL_SERIALIZER = 'django_gearman_proxy.serializers.mail.json.serialize'
+django_gearman_proxy.settings.GEARMAN_EMAIL_UNSERIALIZER = 'django_gearman_proxy.serializers.mail.json.unserialize'
+
 from django_gearman_proxy import load_object
 EmailBackend = load_object(django_gearman_proxy.settings.GEARMAN_EMAIL_BACKEND)
 
@@ -34,7 +38,7 @@ class TestMailJsonUnserializer(unittest.TestCase):
 
     def setUp(self):
         self.serialized = '{"body": "test body", "to": ["to@test.sk"],' \
-                          ' "connection": "django.core.mail.backends.filebased.EmailBackend",' \
+                          ' "connection": "django.core.mail.backends.smtp.EmailBackend",' \
                           ' "attachments": ["/path/to/file"], "bcc": ["bcc@test.sk"], "cc": ["cc@test.sk"],' \
                           ' "headers": {"Extra-Header": "extra-value"}, "from_email": "from@test.sk",' \
                           ' "subject": "test subject"}'

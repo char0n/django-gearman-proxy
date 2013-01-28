@@ -4,6 +4,10 @@ import unittest
 from sendsms.message import SmsMessage
 
 import django_gearman_proxy.settings
+django_gearman_proxy.settings.GEARMAN_SMS_BACKEND = 'sendsms.backends.smssluzbacz.SmsBackend'
+django_gearman_proxy.settings.GEARMAN_SMS_SERIALIZER = 'django_gearman_proxy.serializers.sms.json.serialize'
+django_gearman_proxy.settings.GEARMAN_SMS_UNSERIALIZER = 'django_gearman_proxy.serializers.sms.json.unserialize'
+
 from django_gearman_proxy import load_object
 SmsBackend = load_object(django_gearman_proxy.settings.GEARMAN_SMS_BACKEND)
 
