@@ -21,3 +21,12 @@ class TestSmsBackend(unittest.TestCase):
     def test_submit_mail_job(self):
         result = self.connection.send_messages([self.message])
         self.assertEqual(result, 1)
+
+    def test_submit_mail_job_fail_raise_exception(self):
+        with self.assertRaises(AttributeError):
+            self.connection.send_messages([{}])
+
+    def test_submit_mail_job_fail_silently(self):
+        self.connection = get_connection(backend='django_gearman_proxy.backends.sms.SmsBackend', fail_silently=True)
+        result = self.connection.send_messages([{}])
+        self.assertEqual(result, 0)

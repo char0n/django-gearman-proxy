@@ -147,11 +147,6 @@ To run the tests from your django project, run command: ::
  $ python manage.py test django_gearman_proxy
 
 
-To run the tests from cloned repository, run command: ::
-
- $ python setup.py test
-
-
 Author
 ------
 

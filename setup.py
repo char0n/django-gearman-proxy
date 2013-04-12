@@ -31,7 +31,6 @@ setup(
     install_requires=['django', 'django_gearman_commands', 'smssluzbacz-api', 'django-sendsms'],
     dependency_links = ['http://github.com/Yelp/python-gearman/tarball/master#egg=gearman-dev'],
     platforms='any',
-    test_suite='django_gearman_proxy.tests',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',

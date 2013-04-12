@@ -1,5 +1,3 @@
-import logging
-
 from django.core.mail.backends.base import BaseEmailBackend
 from django.core.management import load_command_class
 
@@ -7,9 +5,6 @@ from django_gearman_commands import submit_job
 
 import django_gearman_proxy.settings
 from django_gearman_proxy import load_object
-
-
-log = logging.getLogger(__name__)
 
 
 PROXY_TASK_NAME = load_command_class('django_gearman_proxy', 'send_mail').task_name
@@ -32,6 +27,7 @@ class EmailBackend(BaseEmailBackend):
                 submit_job(PROXY_TASK_NAME, data=SERIALIZER(msg))
                 sent += 1
             except Exception:
-                log.exception('Error while submitting mail job from gearman email backend')
+                if not self.fail_silently:
+                    raise
         return sent
     send_messages.__doc__ = BaseEmailBackend.send_messages.__doc__ + send_messages.__doc__

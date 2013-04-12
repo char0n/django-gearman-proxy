@@ -1,7 +1,7 @@
 from importlib import import_module
 
 
-VERSION = '1.0'
+VERSION = '1.0.1'
 
 
 def load_object(import_path):
