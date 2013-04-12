@@ -73,6 +73,8 @@ Requirements
  - django_gearman_commands
  - smssluzbacz-api
  - django-sendsms
+ - python-gearman
+ - running gearman daemon
 
 
 Installation
@@ -138,7 +140,8 @@ Tests
  - Xubuntu Linux 12.04.1 LTS precise 64-bit
  - python 2.7.3+
  - python unittest
- - django 1.4.3
+ - django 1.4.5
+ - gearmand 1.1.1
 
 **Running tests**
 
