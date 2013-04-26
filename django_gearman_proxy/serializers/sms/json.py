@@ -13,8 +13,8 @@ def serialize(sms_message):
     SmsMessage object is serialized into json string that is easily transferable via
     gearman protocol as job payload.
 
-    :param email_message: email message to be serialized
-    :type email_message: sendsms.message.SmsMessage
+    :param sms_message: email message to be serialized
+    :type sms_message: sendsms.message.SmsMessage
     :returns: json representation of SmsMessage object
     :rtype: string
     
